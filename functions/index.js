@@ -1,7 +1,7 @@
 import functions from 'firebase-functions';
 import express from 'express';
 import cors from 'cors';
-import { getAllPhrases } from './src/phrases'
+import { addPhrase, getAllPhrases } from './src/phrases'
 
 
 
@@ -13,5 +13,7 @@ app.get('/test', (req, res) => {
     req.send('🚀 This is working!')
 })
 
-app.get('/phrases', )
-app.post('/phrases', )
+app.get('/phrases', getAllPhrases)
+app.post('/phrases', addPhrase)
+
+export const api = functions.https.onRequest(app);
