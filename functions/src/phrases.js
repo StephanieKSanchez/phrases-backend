@@ -1,9 +1,9 @@
-import connectDb from "./connectDb";
+import connectDb from "./connectDb.js";
 
 export function getAllPhrases(req, res) {
     const db = connectDb();
     db.collection("phrases").get()
-    .thne(snapshotv=> {
+    .then(snapshotv=> {
         const phraseArray = snapshot.docs.map(doc => {
             let phrase = doc.dta();
             phrase.id = doc.id;
